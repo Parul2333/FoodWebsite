@@ -1,0 +1,133 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+</head>
+<body>
+    <section class="contact">
+        <div class="content">
+            <h2>Contact Us</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum vel, cumque similique dignissimos ipsam illum earum voluptate minus placeat labore! Praesentium nobis similique molestias, debitis architecto laboriosam deleniti porro, rerum fugiat quidem ipsum nihil.</p>
+
+        </div>
+        <div class="container">
+            <div class="contactInfo">
+                <div class="box">
+                    <div class="icon"></div>
+                    <div class="text"></div>
+                    <h3>Address</h3>
+                    <p>2543 Sugar Camp Road,<br>Delhi<br>33657</p>
+                </div>
+            </div>
+        <div class="box"></div>    
+        </div>
+    </section>
+</body>
+</html> -->
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="contact.css">
+    <title>Contact Us</title>
+    
+</head>
+<body>
+    <div class="container">
+        <h1>Contact Us</h1>
+        <form action="#" method="post">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="food_contact.css">
+    <title>Contact Us</title>
+    
+</head>
+<body>
+    <div class="container">
+        <h1>Contact Us</h1>
+        <form id="contactForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name">
+            <div id="nameError" class="error"></div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email">
+            <div id="emailError" class="error"></div>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message"></textarea>
+            <div id="messageError" class="error"></div>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+    <script>
+        const form = document.getElementById('contactForm');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            if (validateForm()) {
+                // Form submission logic goes here
+                alert('Form submitted successfully!');
+                form.reset();
+            }
+        });
+
+        function validateForm() {
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+
+            let isValid = true;
+
+            if (name === '') {
+                isValid = false;
+                document.getElementById('nameError').innerText = 'Name is required';
+            } else {
+                document.getElementById('nameError').innerText = '';
+            }
+
+            if (email === '') {
+                isValid = false;
+                document.getElementById('emailError').innerText = 'Email is required';
+            } else if (!isValidEmail(email)) {
+                isValid = false;
+                document.getElementById('emailError').innerText = 'Please enter a valid email address';
+            } else {
+                document.getElementById('emailError').innerText = '';
+            }
+
+            if (message === '') {
+                isValid = false;
+                document.getElementById('messageError').innerText = 'Message is required';
+            } else {
+                document.getElementById('messageError').innerText = '';
+            }
+
+            return isValid;
+        }
+
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+    </script>
+</body>
+</html>
